@@ -47,5 +47,9 @@ and see if you can join forces with someone already working on it.
   use it, etc. Maybe you could even wire up [an external library](https://github.com/CocoaPods/Molinillo)
   to do the hard work for you.
 
+
+* Make it possible to store the CA on object storage to make the Puppet stack
+  fully "cloud native" and stateless.
+
 * None of these look exciting? Check the [forks](../../network/members) and see if you
   can join an existing project.
