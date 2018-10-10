@@ -47,5 +47,10 @@ and see if you can join forces with someone already working on it.
   use it, etc. Maybe you could even wire up [an external library](https://github.com/CocoaPods/Molinillo)
   to do the hard work for you.
 
+* Improve PDK to allow generating both documentation (`README.md`) and
+  acceptance tests from examples in a unique directory.
+  See https://github.com/raphink/puppet-freeradius (`Rakefile`, `spec_helper_acceptance`)
+  for a PoC of that idea.
+
 * None of these look exciting? Check the [forks](../../network/members) and see if you
   can join an existing project.
