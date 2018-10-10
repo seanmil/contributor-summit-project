@@ -47,5 +47,8 @@ and see if you can join forces with someone already working on it.
   use it, etc. Maybe you could even wire up [an external library](https://github.com/CocoaPods/Molinillo)
   to do the hard work for you.
 
+* Port the `augeasproviders_core` library to the new Resource API to be used as
+  an alternative base to build parsing providers.
+
 * None of these look exciting? Check the [forks](../../network/members) and see if you
   can join an existing project.
