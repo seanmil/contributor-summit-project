@@ -59,6 +59,7 @@ begin
 
   issues = client.issues(upstream).reverse!
   issues.each do |source|
+    next if source.pull_request
     print '.'
     client.create_issue(origin, source.title, source.body, { :milestone => source.milestone.number,
                                                              :labels    => source.labels })
