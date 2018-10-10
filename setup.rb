@@ -38,10 +38,22 @@ begin
   # inspired by https://github.com/TimothyBritt/github-issue-migrate
   client = Octokit::Client.new(:login => username, :password => password)
   unless otpcode.empty?
-    # create a temporary oauth token to use while cloning issues
-    oauth = client.create_authorization(:scopes  => ['repo'],
-                                        :note    => 'Contributor Summit Project',
-                                        :headers => { 'X-GitHub-OTP' => otpcode })
+    begin
+      # create a temporary oauth token to use while cloning issues
+      oauth = client.create_authorization(:scopes  => ['repo'],
+                                          :note    => 'Contributor Summit Project',
+                                          :headers => { 'X-GitHub-OTP' => otpcode })
+    rescue Octokit::OneTimePasswordRequired
+      puts
+      puts 'Please ensure that your two-factor code is correct.'
+      exit 1
+    rescue Octokit::UnprocessableEntity
+      puts
+      puts 'Check https://github.com/settings/tokens'
+      puts "Make sure you don't already have a token for Contributor Summit."
+      puts 'Delete it if you do, and then run this again.'
+      exit 1
+    end
 
     # Creating the authorization isn't enough. Now we've got to re-login with that token
     client = Octokit::Client.new(:access_token => oauth[:token])
