@@ -1,0 +1,8 @@
+---
+.travis.yml:
+  docker_sets:
+    - set: docker/centos-7
+    - set: docker/centos-6
+  docker_defaults:
+    bundler_args: ""
+  deploy: false
