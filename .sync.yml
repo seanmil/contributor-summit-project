@@ -5,3 +5,4 @@
     - set: docker/centos-6
   docker_defaults:
     bundler_args: ""
+  deploy: false
