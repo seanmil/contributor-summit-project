@@ -1,4 +1,4 @@
-# Package Metadata Types
+# RPM Metadata Types
 
 #### Table of Contents
 
@@ -9,13 +9,11 @@
 
 ## Description
 
-This module provides Puppet types which leverage the package metadata found in certain
-package management systems.
+This module provides Puppet types which leverage the package metadata found in RPM.
 
-Some package management systems retain a database of metadata about installed packages.
-This often includes a list of files belonging to that package, sometimes including
-checksums, and sometimes including additional attributes such as the intended
-file owner or permissions.
+RPM retains a database of metadata about installed packages which includes a list
+of files belonging to that package, checksums, and additional attributes such
+as the intended file owner or permissions.
 
 The types in this module intend to provide a way to leverage some of that metadata
 though mechanisms already in Puppet to do things such as:
@@ -26,15 +24,12 @@ though mechanisms already in Puppet to do things such as:
 * Use owner, group, and mode permissions associated with files in the package database
   to set the associated attributes on Puppet `file` resources.
 
-Initial support will focus on the RPM package management system, as it is well-established
-and maintains a rich database of metadata on the files it manages.
-
 ## Usage
 
 ### Protect files from purging
 
 ```
-package_files_protect { '/etc/cron.d': }
+rpm_files_protect { '/etc/cron.d': }
 ```
 
 This will generate stub `file` resources to prevent purging for all files under `/etc/cron.d/*`
@@ -51,11 +46,10 @@ system's expectations and raise a Puppet resource error if not.
 
 ## Limitations
 
-Initial support is for RPM. Minimal Deb support is planned, within the limitations
-of the package system.
+Only RPM is supported. A quick look at Deb showed that it didn't seem to have many
+of the capabilities of RPM in terms of package metadata.
 
 ## Development
 
-Contributions for bug fixes or from people with expertise in a particular package
-management system welcomed. Please fill issues or PRs at
-https://github.com/seanmil/package_metadata_types
+Patches and bug reports welcomed. Please fill issues or PRs at
+https://github.com/seanmil/rpm_metadata_types
