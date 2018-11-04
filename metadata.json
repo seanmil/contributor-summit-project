@@ -1,10 +1,10 @@
 {
-  "name": "seanmil-package_metadata_types",
+  "name": "seanmil-rpm_metadata_types",
   "version": "0.1.0",
   "author": "Sean Millichamp <sean@bruenor.org>",
   "summary": "Types to help leverage package metadata from within Puppet",
   "license": "Apache-2.0",
-  "source": "https://github.com/seanmil/package_metadata_types",
+  "source": "https://github.com/seanmil/rpm_metadata_types",
   "dependencies": [
 
   ],
